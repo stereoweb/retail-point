@@ -1,0 +1,24 @@
+{
+    "name": "stereo/rtp-xml-parser",
+    "type": "library",
+    "description": "Script for parsing Retail Point XML",
+    "keywords": ["rtp","Retail Point"],
+    "homepage": "https://www.stereo.ca/",
+    "license": "0BSD",
+    "authors": [
+        {
+            "name": "Stereo",
+            "email": "support@stereo.ca",
+            "homepage": "https://www.stereo.ca/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Stereo\\RTP\\": "src"
+        }
+    }
+}
