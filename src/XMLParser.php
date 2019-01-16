@@ -52,7 +52,7 @@ class XMLParser
 
     public function open()
     {
-        $this->reader = new XMLReader();
+        $this->reader = new \XMLReader();
         $this->reader->open($this->xml);
     }
 
@@ -64,12 +64,12 @@ class XMLParser
     public function fetch($json = false)
     {
         while ($this->reader->read()) {
-            if ($this->reader->nodeType == XMLReader::END_ELEMENT) {
+            if ($this->reader->nodeType == \XMLReader::END_ELEMENT) {
                 continue; //skips the rest of the code in this iteration
             }
 
             if ($this->reader->name == 'product') {
-                $element = new SimpleXMLElement($this->reader->readOuterXML());
+                $element = new \SimpleXMLElement($this->reader->readOuterXML());
 
                 if ($json) {
                     $element = json_decode(json_encode($element), true);
