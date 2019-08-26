@@ -3,16 +3,14 @@ namespace Stereo\RTP;
 
 class XMLParser
 {
-    private $images_path;
     private $reader;
     private $xml;
 
     public $errors = [];
 
-    public function __construct($file = false, $images_path = false)
+    public function __construct($file = false)
     {
         $this->xml = $file;
-        $this->images_path = $images_path;
 
         if ($this->xml === false) {
             $this->errors[] = "Missing first argument : file";
@@ -24,18 +22,6 @@ class XMLParser
 
         if (!file_exists($this->xml)) {
             $this->errors[] = "File doesn't exist";
-        }
-
-        if ($this->images_path === false) {
-            $this->errors[] = "Missing second argument : image path";
-        }
-
-        if (empty($this->images_path)) {
-            $this->errors[] = "Image path argument empty";
-        }
-
-        if (!file_exists($this->images_path)) {
-            $this->errors[] = "Images path doesn't exist";
         }
 
         $this->check_errors();
