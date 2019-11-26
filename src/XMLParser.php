@@ -69,6 +69,28 @@ class XMLParser
         return false;
     }
 
+    public function fetch_giftcard($json = false)
+    {
+        while ($this->reader->read()) {
+            if ($this->reader->nodeType == \XMLReader::END_ELEMENT) {
+                continue; //skips the rest of the code in this iteration
+            }
+
+            if ($this->reader->name == 'CRTECAD') {
+                $element = new \SimpleXMLElement($this->reader->readOuterXML());
+
+                if ($json) {
+                    $element = json_decode(json_encode($element), true);
+                }
+
+                return $element;
+            }
+        }
+
+        $this->close();
+        return false;
+    }
+
     public function list_products_attributes()
     {
         $attributes = [];
