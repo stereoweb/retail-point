@@ -76,7 +76,7 @@ class XMLParser
                 continue; //skips the rest of the code in this iteration
             }
 
-            if ($this->reader->name == 'CRTECAD') {
+            if ($this->reader->name == '_QUERY_CC_1') {
                 $element = new \SimpleXMLElement($this->reader->readOuterXML());
 
                 if ($json) {
